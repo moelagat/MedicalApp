@@ -1,18 +1,21 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+     HashRouter as BrowserRouter, //as Router,
+     //Router,
+     Routes,     
+    Route,
+    //Link  
 } from "react-router-dom";
 import Home from './home';
 import Patient from './patient';
 const Webpages = () => {
     return(
-        <Router>
-            <Route exact path="/" component= {Home} />
-            <Route path = "/patient" component = {Patient} />
-        </Router>
+        <BrowserRouter>
+        <Routes>
+            <Route exact path="/" element= {Home()} />
+            <Route path = "/patient" element = {Patient()} />
+        </Routes>
+        </BrowserRouter>
     );
 };
 export default Webpages;

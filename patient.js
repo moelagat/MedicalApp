@@ -1,5 +1,5 @@
 import React from 'react';
-const Patient = () => {
+const Patient = () => { 
     return(
     <div>
         <h1>Patient Details</h1>
