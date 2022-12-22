@@ -1,16 +1,17 @@
 
 import React, { useState, useEffect }  from 'react';
+import { Link } from 'react-router-dom';
 const Home = () => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [users, setUsers] = useState([]);    
+    const [patients, setPatients] = useState([]);    
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/users/")
             .then(res => res.json())
             .then(
                 (data) => {
                     setIsLoaded(true);
-                    setUsers(data);
+                    setPatients(data);
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -23,11 +24,12 @@ const Home = () => {
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
+       
         return (
             <ul>
-                {users.map(user => (
-                <li key={user.id}>
-                    {user.name} 
+                {patients.map(patient => (
+                <li>
+                <Link to={`patient/${patient.id}`}>{patient.name}</Link>
                 </li>
                 ))}
             </ul>
